@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: GKI Kernel Module Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     needs: upload-artifact
     strategy:
       matrix:
@@ -20,7 +20,6 @@ jobs:
           - android16-6.12
         arch:
           - aarch64
-          - x86_64
 
     steps:
       - name: Maximize build space
@@ -46,7 +45,7 @@ jobs:
 
   upload-artifact:
     name: Upload LKM Source Code
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
